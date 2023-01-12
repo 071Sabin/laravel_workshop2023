@@ -3,7 +3,7 @@ $conn = mysqli_connect("localhost", "root", "", "laravel") or die(mysql_error())
 $query = "select * from laravel1";
 $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
 ?>
-
+<!--changed by viewer-->
 <html>
 
 <head>
