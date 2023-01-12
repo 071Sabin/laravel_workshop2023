@@ -1,0 +1,9 @@
+1. /
+2. /user/register
+3. /user/login
+4. /videos/browse/4
+5. /videos/details/1
+
+6. /admin/login
+7. /admin/categories
+8. /admin/contact-us-data

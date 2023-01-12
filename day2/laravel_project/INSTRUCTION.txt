@@ -1,0 +1,2 @@
+while_accessing a project please run composer install command in cmd.
+this will create a vendor folder inside the project and then the project will run.

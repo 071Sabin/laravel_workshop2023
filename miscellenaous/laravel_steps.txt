@@ -1,0 +1,46 @@
+>> Prepare PHP
+    check version
+    if required, download new folder from windows.php.net
+    set env variables for new proper version
+    configur php.ini
+
+
+>> Install composer
+
+
+>> To create new project fire commands:
+    composer global require laravel/installer
+    laravel new example-app
+
+
+>> Folder locations:
+    Models: app/Models
+    Controllers: app/Http/Controllers
+    Views: resources/views
+    Config: config/app.php, etc..
+    Env File: .env
+
+
+>> Edit .env set app name , etc
+
+>> Edit config/app.php - set timezone, etc
+
+>> Run project using 
+    php artisan serve
+
+>> Plan your routs for the project roughly like:
+    /
+    /user/register
+    /user/login
+    /videos/browse/1
+    /videos/details/1
+    /videos/upload
+    /contact-us
+
+>> Create the routes in : routes/web.php
+    php artisan make:controller HomeController
+    php artisan make:controller User/SomethingController
+    php artisan make:controller UserController
+    .
+    .
+    

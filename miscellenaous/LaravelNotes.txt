@@ -1,0 +1,216 @@
+*****************************************************************************
+**** THIS FOLDER MUST BE INSIDE XAMPP/HTDOCS *******
+*****************************************************************************
+
+concept of namespace
+1. with same file name and same class inside file, then we have to change the name of a file among those 2. 
+else you can follow these:
+	a. use namespace Abc; //abc can be replaced with any other name as namespace;
+		under namespace Abc we are creating a function or everything. Creating namespace same as foldername.
+	
+	b. using same function and class file copy paste same file into another Pqr folder.
+		then namespace Pqr; //Pqr is the foldername, and we can't use one.php as require Abc/one.php as because it has to be used with it's namespace.
+		we can do as:  $t=new Abc\one(); // Abc here is the namespace and one() is function
+
+	c. we also can use namespace OR inport the file with with;
+		use Abc; //here Abc is namespace.
+		use Abc\one; //here Abc namespace with class name one.
+		ALSO CAN BE CREATED OBJECT AS:
+		$t1=new Abc\one();
+		$t2=new Pqr\one();
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+UPLOAD A PROJECT IN GIT WITH COMMAND LINE:
+1. MOVE TO YOUR PROJECT FOLDER IN CMD
+2. --> git init
+3. --> git add .
+4. --> git commit -m "first commit" // instead of first commit anything can be written, double quotation is necessary
+
+if(errors after 4th step such as global user & email){
+	then use step 5 and 6
+} else{
+	skip 5 and 6;
+	goto 7;
+}
+
+5. -->git commit config --global user.email 071.sabin.panthi@gmail.com
+6. --> git commit --global user.name 071Sabin
+====> 5 and 6 steps are just for the first time, after it's done no need for second time.
+
+7. --> step 4
+8. --> git remote add origin <github-repos-link>
+9. --> git push <github-repos-link>
+10. --> have to login for the first time.
+11. --> done!!
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+BOOTSTRAP
+
+bootstrapmade.com
+bootstrap.min.js --. this file has code with eliminated spaces. so min.
+1. js has to be loaded just before the body closes.
+2. favicon icons??
+3. https://getbootstrap.com/docs/5.3/getting-started/introduction/
+4. md--> medium devices, col-md-6
+5. my ---> margin top and bottom
+6. mx --> margin left and right.
+7. bootstrap gives browser compatibility
+8. <meta> tags are for SEO optimization
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WHEN YOUR PHP FILE DOESN'T RUN, CHECK YOUR PHP VERSION AND CHECK VCC VERSION.
+pARTICULAR WINDOWS MAY HAVE PARTICULAR VERSION OF VCC THAT MAY RUN CERTAIN VERSION OF PHP BUT NOT THE HIGHER VERSION.
+We may find newer php version not running in our device in future.
+
+###########################################################################################################################################
+###########################################################################################################################################
+
+XAMPP/PHP/php-ini file must be enabled these things:
+//we also can edit the execution times and file uploading sizes etc.
+
+max_execution_time=120
+memory_limit=512M
+post_max_size=100M
+
+extension=bz2
+extension=curl
+extension=fileinfo
+extension=gettext
+extension=mbstring
+extension=exif      
+extension=mysqli
+extension=openssl
+extension=pdo_mysql
+
+------> check if these changes are working or not:- http://localhost/dashboard/phpinfo.php
+
+###########################################################################################################################################
+###########################################################################################################################################
+
+INSTALLING LARAVEL:
+
+1. INSTALL COMPOSER FIRST, DEFAULT IT WILL BE INSTALLED IN PHP FOLDER DEFAULT.
+2. USING THESE COMMANDS WE CREATE A PROJECT.
+	cmd --> composer global require larvel/installer
+	cmd --> laravel new <ProjectfolderName> //creates project folder
+
+3. some errors may arise while executing the first command above. suck as enabling something in php.ini, so go to php installed(not of xampp)
+	and then enable those extensions.
+
+4. and then go to the project directory just created using command(laravel new <prjname>)
+5. after navigating to prj.folder, cmd --> php artisan serve
+6. SERVER STARTED.......
+
+###########################################################################################################################################
+###########################################################################################################################################
+
+HOW TO RUN THIS PROJECT:
+while using xampp we used localhost:3000..... OR using directly php file as url= localhost/foldernavigation
+2. we use 'artisan' as to run server.
+3. After starting the server in cmd, we can open the project folder in vsc and open a new cmd in vsc.
+4. open a browser and url= localhost:8000
+5. laravel simple home will display.
+
+6. except public folder everything is secured, all our coding are secured.
+
+###########################################################################################################################################
+###########################################################################################################################################
+
+FINDING MVC IN YOUR PROJECT FILE;
+app/http/controller ===> here will be out controllers, we will inherit from this controller.php.
+app/models ===> we will create our models here.
+resources/views/anyfile.php ===> this will be views
+
+****************these are the three locations where we practice MVC.
+
+config ========> settings related to DB, file systems, sessions etc.
+config/app.php =====> general settings of our project is inside this file.
+
+WRITE CTRL+T IN VSC AND TYPE FILE NAME TO QUICK ACCESS.
+
+
+###########################################################################################################################################
+###########################################################################################################################################
+
+INSIDE CONFIG/APP.PHP
+
+1. env('APP_NAME', 'abc') ====> it means goto .env file and extract APP_NAME if can't extract use abc.
+2. APP_KEY ====> random key used for encryption. Everyone has different keys.
+3. APP_DEBUG = true; //if false it shows 404 or sth else error.
+4. APP_URL ===> host name.
+
+|**************change timezone in .env file.
+|**************change APP_NAME=Video Site in .env file.
+
+
+###########################################################################################################################################
+###########################################################################################################################################
+
+mysite.com/register.php
+mysite.com/login.php
+
+mysite.com/register
+
+###########################################################################################################################################
+###########################################################################################################################################
+
+MOVE TO ROUTES FOLDER: THIS HELPS TO NAVIGATE TOWARDS THE FILES, CREATE ABC.BLADE.PHP FILE.
+THEN ROUTE TO THE SAME abc file as: 
+Route::get('/', function () {
+    return view('abc');
+});
+
+*** controller.php controls eveerything.
+php artisan make:Controller HomeController // this will create a home controller in the controller.php folder.
+After creating home controller, use/app..... file path.
+also create UserController.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
