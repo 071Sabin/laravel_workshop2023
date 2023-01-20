@@ -1,0 +1,59 @@
+1. Edit the models which will be used for login
+    change from "extends Model" to:
+        class User extends Authenticatable
+        class Admin extends Authenticatable
+    Also import namespace using:
+        use Illuminate\Foundation\Auth\User as Authenticatable;
+
+2. Go to config/auth.php
+    on line 16 clear the defaults:
+
+    'defaults' => [
+        'guard' => '',      //make this blank
+        'passwords' => '',
+    ],
+
+    set guards like this:
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+    ],
+
+    set providers like this:
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+        
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
+    ],
+
+3. GO to file App\Http\Middleware\RedirectIfAuthenticated
+    code:
+
+4. Go to file App\Http\Middleware\Authenticate
+    protected function redirectTo($request)
+    {
+        return route('site.login');
+    }
+
+

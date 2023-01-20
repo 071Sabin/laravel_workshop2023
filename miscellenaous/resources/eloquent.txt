@@ -1,0 +1,78 @@
+//-- Insert one record
+        // $u = new User();
+        // $u->name = "Romit";
+        // $u->phone = "9898989898";
+        // $u->email = "Romit@abc.com";
+        // $u->password = "123";
+        // $u->save();
+
+        //-- Get first record
+        // $u = User::first();
+        // dd($u->name." ".$u->phone);
+
+        //-- Get record by ID
+        //$u = User::find(2);
+        //dd($u->name." ".$u->phone);
+        
+        // $u = User::find(22);
+        // if( ! empty($u) ) {
+        //  dd($u->name." ".$u->phone);
+        // }
+
+        // $u = User::findOrFail(22);
+        // dd($u->name." ".$u->phone);
+
+        //-- Different way to get multiple records
+        //$users = User::get();
+        //$users = User::where("id", ">", "2")->get();
+        //$users = User::where("id", "2")->get();
+        //$users = User::where("id", ">", "1")->where("id", "<", "4")->get();
+        
+        // $users = User::where([
+        //     ["id", ">", "1"],
+        //     ["id", "<", "5"],
+        // ])->get();
+
+        // $users = User::orderBy("name", "desc")->get();
+
+        // foreach($users as $u) {
+        //     echo $u->name."<Br>";
+        // }
+
+        //-- Edit one record
+        // $u = User::find(3);
+        // $u->name = 'Reenudi';
+        // $u->phone = 9999999999;
+        // $u->save();
+
+        // User::where('id', "3")->update([
+        //     "name" => "kaka",
+        //     "phone" => "8888888888"
+        // ]);
+
+        //-- Delete one record
+        // $u = User::find(3);
+        // $u->delete();
+
+        //User::where("id", "3")->delete();
+
+    //-- Relatinship Demo
+    //     $v = Video::find(1);
+
+    //    echo $v->title."<Br>";
+    //    echo $v->description."<Br>";
+    //    echo $v->user->name."<br>";
+    //    echo $v->user->phone."<br>";
+    //    echo $v->category->name."<br>";
+
+
+    //-- Relatinship Demo
+    //    $u = User::find(5);
+
+    //    echo $u->name."<Br>";
+    //    echo $u->phone."<Br>";
+    //    echo "Videos: <hr>";
+    //    foreach($u->videos as $v) {
+    //     echo $v->title."<Br>";
+    //    }
+       

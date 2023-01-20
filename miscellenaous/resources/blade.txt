@@ -1,0 +1,13 @@
+Blade:
+    1. file names are whatever.blade.php
+    2. to print a variable:
+        old way: <?php echo $x; ?>
+        new way: {{ $x }}
+    3. to print without any security / change in data
+        {!! $x !!}
+    4. if condition
+        @if($x == 1)
+
+            Yo <B> Hello
+
+        @endif

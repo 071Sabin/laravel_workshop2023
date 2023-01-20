@@ -1,3 +1,7 @@
 1. $_FILES
 2. moveUploadedFile() function
 3. only public folder is accessible from our browser.
+4. View component
+5. give option to user to crop their images.
+5. in web.php--> we have route::web............ we have one more function that says that certain url to display.
+6. 
