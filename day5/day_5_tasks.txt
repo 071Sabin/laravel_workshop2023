@@ -1,0 +1,5 @@
+1. did authentications.
+2. if logged in then only show upload options.
+3. admin login authentications.
+4. user login and uploading videos with thumbnails.
+5. 
