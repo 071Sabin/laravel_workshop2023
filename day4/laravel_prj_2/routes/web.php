@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
@@ -23,15 +22,23 @@ use App\Http\Controllers\admin\VideoUploadController;
 //press ctrl+alt+i and homeController will be imported/used above.
 Route::get('/', [HomeController::class, "index"])->name('site.home');
 
+
+Route::get('/user/register', [UserController::class, "register"])->name('site.register');
+Route::post('/user/register', [UserController::class, "register_process"]);
+//with post method, a different function is executed, on submit.
+Route::get('/user/login', [UserController::class, "login"])->name("site.login");
+Route::post('/user/login', [UserController::class, "login_process"]);
+
+
+Route::get('/videos/upload', [VideoUploadController::class, "upload"])->name('site.video.upload');
+Route::post('/videos/upload', [VideoUploadController::class, "upload_process"]);
+Route::get('user/logout', [UserController::class, "logout"])->name('site.user.logout');
+
+
 Route::get('/contact-us', [ContactController::class, "contact"])->name('site.contact');
 Route::post('/contact-us', [ContactController::class, "process"]);
 
-Route::get('/user/register', [UserController::class, "register"])->name('site.register');
-//with post method, a different function is executed, on submit.
-Route::post('/user/register', [UserController::class, "register_process"]);
 
-Route::get('/user/login', [UserController::class, "login"])->name("site.login");
-Route::post('/user/login', [UserController::class, "login_process"]);
 
 
 
@@ -44,9 +51,6 @@ Route::post('/admin/login', [AdminUserController::class, "login_validation"]);
 
 Route::get('/admin/categories', [CategoriesController::class, "fn_categories"])->name("admin.categories");
 Route::post('/admin/categories', [CategoriesController::class, "insert_category"]);
-
-Route::get('/videos/upload', [VideoUploadController::class, "upload"])->name('site.video.upload');
-Route::post('/videos/upload', [VideoUploadController::class, "upload_process"]);
 
 Route::get('/admin/contact-us-data', [ContactDataController::class, "contact"])->name("admin.contact");
 Route::post('/admin/contact-us-data', [ContactDataController::class, "contact_validation"]);

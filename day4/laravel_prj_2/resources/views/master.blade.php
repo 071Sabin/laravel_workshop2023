@@ -31,16 +31,27 @@
       <div class="container d-flex justify-content-between align-items-center">
 
         <div class="logo">
-          <h1><a href="index.html">VideoSite</a></h1>
+          <h1><a href="{{ route('site.home') }}">VideoSite</a></h1>
         </div>
 
         <nav id="navbar" class="navbar">
           <ul>
             <li><a href="{{ route('site.home') }}">Home</a></li>
+
+            @if( ! Auth::guard('user')->check() )
             <li><a href="{{ route('site.register') }}">Register</a></li>
             <li><a href="{{ route('site.login') }}">Login</a></li>
+            @endif
+
+            @if( Auth::guard('user')->check() )
             <li><a href="{{ route('site.video.upload') }}">Upload</a></li>
+            @endif
+            
             <li><a href="{{ route('site.contact') }}">Contact</a></li>
+
+            @if(Auth::guard("user")->check() )
+            <li><a href="{{ route('site.logout') }}">Logout</a></li>
+            @endif
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

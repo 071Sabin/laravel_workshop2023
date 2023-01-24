@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -40,6 +41,9 @@ class UserController extends Controller
         $u->profile_pic = $profile_pic;
 
         $u->save();
+
+        $request->session()->flash('register_process_done', true);
+        return redirect()->route("site.register");
     }
 
     public function login()
@@ -51,8 +55,9 @@ class UserController extends Controller
     {
         $request->validate([
             "email" => "required|email",
-            "password" => "required"
+            "password" => "required",
         ]);
-        echo "Ok!!";
+
     }
+
 }
