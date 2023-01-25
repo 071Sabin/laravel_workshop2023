@@ -12,6 +12,10 @@
       Welcome to Home Page
     </div>
 
+    <div>
+      
+    </div>
+
     <div class="entry-content">
       
     </div>

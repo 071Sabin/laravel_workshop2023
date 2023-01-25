@@ -67,8 +67,14 @@
 
             <div class="col-lg-4">
 
-              <div class="sidebar">
+              @if(Auth::guard("user")->check() )
+                  <div class="sidebar">
+                    <b><i class="bi bi-person-fill"> {{ Auth::guard('user')->user()->name }} </i></b>
+                  </div> 
+              @endif
 
+              <div class="sidebar">
+    
                 <h3 class="sidebar-title">Search</h3>
                 <div class="sidebar-item search-form">
                   <form action="">
