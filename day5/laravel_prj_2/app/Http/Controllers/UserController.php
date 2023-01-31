@@ -78,7 +78,5 @@ class UserController extends Controller
     {
         Auth::guard('user')->logout();
         return redirect()->route('site.home');
-
     }
-
 }

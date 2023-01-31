@@ -16,7 +16,7 @@
       <div class="alert alert-success">Thank you. You have now registered.</div>
     @endif
 
-    <!-- @if($errors->any())
+    {{-- @if($errors->any())
 
       <div class="alert alert-danger">
 
@@ -26,7 +26,7 @@
 
       </div>
 
-    @endif -->
+    @endif --}}
     
     <form action="{{ route('site.register') }}" method="post" enctype="multipart/form-data">
       

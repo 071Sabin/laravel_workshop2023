@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\video;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+//this code is already outside 'admin' folder with 'videoController.php'. write anything that admin can control over the user uploaded files.
 
 class VideoUploadController extends Controller
 {
@@ -24,9 +28,23 @@ class VideoUploadController extends Controller
             ]
         );
 
-        $x1 = $request->file('thumb')->store("thumbs");
-        $x2 = $request->file('video_file')->store("videos");
-        echo $x1 . "<Br>" . $x2;
+        $thumb_file = $request->file('thumb')->store("thumbs");
+        $video_file = $request->file('video_file')->store("videos");
+        // echo $x1 . "<Br>" . $x2;
+
+        $v = new video();
+
+        $v->category_id = $request->category;
+        $v->user_id = Auth::guard('user')->user()->id;
+        $v->title = $request->title;
+        $v->description = $request->description;
+        $v->thumb = $thumb_file;
+        $v->video_file = $video_file;
+
+        $v->save();
+
+        $request->session()->flash("Upload_process_done", true);
+        return redirect()->route("site.video.upload");
 
     }
 }

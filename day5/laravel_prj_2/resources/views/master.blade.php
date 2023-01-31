@@ -50,6 +50,7 @@
             <li><a href="{{ route('site.contact') }}">Contact</a></li>
 
             @if(Auth::guard("user")->check() )
+            <li><a href="#">Profile</a></li>
             <li><a href="{{ route('site.user.logout') }}">Logout</a></li>
             @endif
           </ul>
@@ -70,7 +71,7 @@
               @if(Auth::guard("user")->check() )
                   <div class="sidebar">
                     <b><i class="bi bi-person-fill"> {{ Auth::guard('user')->user()->name }} </i></b>
-                  </div> 
+                  </div>
               @endif
 
               <div class="sidebar">

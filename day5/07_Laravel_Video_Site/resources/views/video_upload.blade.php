@@ -14,7 +14,7 @@
 
     @if( ! empty( session('upload_process_done') ) )
       <div class="alert alert-success">Video uploaded.</div>
-      @endif
+    @endif
 
     @if($errors->any())
 

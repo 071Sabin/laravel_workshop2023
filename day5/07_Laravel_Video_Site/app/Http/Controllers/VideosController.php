@@ -9,14 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class VideosController extends Controller
 {
-    public function upload() {
+    public function upload()
+    {
 
         $categories = Category::orderBy("name", "asc")->get();
 
         return view("video_upload", compact('categories'));
     }
-    
-    public function upload_process(Request $request) {
+
+    public function upload_process(Request $request)
+    {
 
         $request->validate([
             "title" => "required",
@@ -26,8 +28,8 @@ class VideosController extends Controller
             "video_file" => "required|file|mimes:mp4|max:5120"
         ]);
 
-        $thumb_file =  $request->file('thumb')->store("thumbs");
-        $video_file =  $request->file('video_file')->store("videos");
+        $thumb_file = $request->file('thumb')->store("thumbs");
+        $video_file = $request->file('video_file')->store("videos");
 
         $v = new Video();
 
@@ -36,13 +38,13 @@ class VideosController extends Controller
         $v->title = $request->title;
         $v->description = $request->description;
         $v->thumb = $thumb_file;
-        $v->video_file =  $video_file;
+        $v->video_file = $video_file;
 
         $v->save();
 
         $request->session()->flash("upload_process_done", true);
         return redirect()->route("site.video.upload");
-       
+
 
     }
 }

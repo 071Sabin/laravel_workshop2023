@@ -1,4 +1,4 @@
-{{-- this will export the master file inside resources--views, bust can't relocate the folder inside views. --}}
+{{-- this will export the master file inside resources--views, but can't relocate the folder inside views. --}}
 @extends('master')
  
 @section('content')
@@ -10,10 +10,14 @@
   <div class="entry-meta">
     Please provide your data.
   </div>
+
+  @if( ! empty( session('register_process_done') ) )
+      <div class="alert alert-success">You are now registered.</div>
+  @endif
  
   <div class="entry-content">
  
-    {{-- @if($errors->any())
+    @if($errors->any())
  
       <div class="alert alert-danger">
  
@@ -23,7 +27,7 @@
  
       </div>
  
-    @endif --}}
+    @endif
    
     <form action="{{ route('site.register') }}" method="post" enctype="multipart/form-data">
      

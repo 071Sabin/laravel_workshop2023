@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\admin\AdminUserController;
 use App\Http\Controllers\admin\CategoriesController;
@@ -31,8 +32,8 @@ Route::middleware(['guest:user'])->group(function () {
 });
 
 Route::middleware(['auth:user'])->group(function () {
-    Route::get('/videos/upload', [VideoUploadController::class, "upload"])->name('site.video.upload');
-    Route::post('/videos/upload', [VideoUploadController::class, "upload_process"]);
+    Route::get('/videos/upload', [VideoController::class, "upload"])->name('site.video.upload');
+    Route::post('/videos/upload', [VideoController::class, "upload_process"]);
     Route::get('user/logout', [UserController::class, "UserLogout"])->name('site.user.logout');
 });
 

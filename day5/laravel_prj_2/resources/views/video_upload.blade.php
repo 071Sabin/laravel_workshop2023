@@ -9,6 +9,10 @@
   <div class="entry-meta">
     Please upload your video.
   </div>
+
+  @if( ! empty( session('register_process_done') ) )
+      <div class="alert alert-success">Video is Uploaded.</div>
+  @endif
  
   <div class="entry-content">
  
@@ -49,12 +53,12 @@
  
       <div class="mb-3">  
         <label>Thumb</label>
-        <input type="file" class="form-control" name="thumb">
+        <input type="file" class="form-control" name="thumb" value="{{ old('thumb') }}">
       </div>
      
       <div class="mb-3">  
         <label>Video File</label>
-        <input type="file" class="form-control" name="video_file">
+        <input type="file" class="form-control" name="video_file" value="{{ old('video_file') }}">
       </div>
    
  
