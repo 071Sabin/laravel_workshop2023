@@ -44,7 +44,7 @@ class VideoController extends Controller
 
         $v->save();
 
-        $request->session()->flash("register_process_done", true);
+        $request->session()->flash("video_upload_done", true);
         return redirect()->route("site.video.upload");
     }
 }

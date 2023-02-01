@@ -10,7 +10,7 @@
     Please upload your video.
   </div>
 
-  @if( ! empty( session('register_process_done') ) )
+  @if( ! empty( session('video_upload_done') ) )
       <div class="alert alert-success">Video is Uploaded.</div>
   @endif
  
